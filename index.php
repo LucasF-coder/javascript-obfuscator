@@ -300,8 +300,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($_POST["JS_code"])) {
 
-        if (isset($_SERVER['HTTP_ORIGIN']) && $_SERVER['HTTP_ORIGIN'] === 'https://obf.moroz.tech') {
-
             $JS_code = $_POST["JS_code"];
 
             if (!empty($JS_code)) {
@@ -312,11 +310,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 http_response_code(400); 
                 echo "Empty JavaScript code.";
             }
-        } else {
-
-            http_response_code(403); 
-            echo "Unauthorized access.";
-        }
     } else {
 
         http_response_code(400); 
